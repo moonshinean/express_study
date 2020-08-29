@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 	res.send('hello word')
 })
 
-var server = app.listen(port, '192.168.11.171', () => {
+var server = app.listen(port, 'localhost', () => {
 	var host = server.address().address;
 	console.log(`Example app listening on http://${host}:${port}`);
 })
