@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                let obj = {
+                    username: $('#username').val(),
+                    password: $('#password').val()
+                }
+                $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/login',
+                contentType: 'application/json',
+                dataType: 'text',
+                data: JSON.stringify(obj),
+                success: function(data){
+                        console.log(data);
+                    }
+                })
+            })
+        })
+    </script>  
+</head>
+<body>
+    <form >
+        用户名：<input type="text" name="username" id="username"><br/>
+        密  码：<input type="text" name="password" id="password"><br/>
+        <input type="button" value="提交" id="btn">
+    </form>
+</body>
+</html>
