@@ -9,17 +9,24 @@ const template = require('art-template');
 
 const app = express();
 
-// 设置魔板路径
-
-app.set('view', path.join(__dirname));
-
 // 使express 兼容art-template模板引擎
-
 app.engine('art', require('express-art-template'))
+
+// 设置模板路径
+
+app.set('views', path.join(__dirname), 'views');
+//  设置模板引擎
+app.set('views engine', 'art')
+
 
 
 app.get('/list', (req, res) => {
-
+    let data = {
+      title: '水果', 
+      list: ['apple', 'orange', 'banana']
+    }
+    // 参数一：模板名称，参数二：渲染模板的数据
+    res.render('list', data);
 });
 
 app.listen(3000, () => {
