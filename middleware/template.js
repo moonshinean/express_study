@@ -14,13 +14,12 @@ app.engine('art', require('express-art-template'))
 
 // 设置模板路径
 
-app.set('views', path.join(__dirname), 'views');
+app.set('views', path.join(__dirname, 'views'));
 //  设置模板引擎
-app.set('views engine', 'art')
-
-
+app.set('view engine', 'art')
 
 app.get('/list', (req, res) => {
+    console.log(path.join(__dirname));
     let data = {
       title: '水果', 
       list: ['apple', 'orange', 'banana']
